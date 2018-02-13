@@ -1,0 +1,25 @@
+<div ng-show="tasks.length == 0">
+    <h3>No hay tareas para mostrar</h3>
+</div>
+<input type="text" ng-model="search" placeholder="Buscar una tarea..." ng-show="tasks.length > 0" />
+<table>
+    <thead>
+        <tr>
+            <th>Tarea</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="(id,task) in tasks | filter: search">
+            <td>{{ task.task }}</td>
+            <td>
+                <div>
+                    <a href="#/edit/{{id}}">Editar</a>
+                </div>
+                <div>
+                    <a href="#/remove/{{id}}">Eliminar</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
